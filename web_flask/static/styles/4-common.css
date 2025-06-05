@@ -1,0 +1,19 @@
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+}
+button {
+  font-size: 18px;
+  background-color: #FF5A5F;
+  color: #FFFFFF;
+  height: 48px;
+  width: 20%;
+  border: 0;
+  border-radius: 4px;
+/*  float: right;*/
+  margin: auto 30px;
+}
+
+button:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
