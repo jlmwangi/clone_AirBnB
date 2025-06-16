@@ -20,14 +20,18 @@ class Place(BaseModel, Base):
     """ A place to stay """
     if os.getenv("HBNB_TYPE_STORAGE") == 'db':
         __tablename__ = 'places'
+        '''__table_args__ = {
+                'mysql_charset': 'latin1',
+                'mysql_collate': 'latin1_swedish_ci'
+        }'''
         city_id = Column(String(60), ForeignKey('cities.id'), nullable=False)
         user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
         name = Column(String(128), nullable=False)
         description = Column(String(1024), nullable=False)
-        number_rooms = Column(Integer, default=0, nullable=False)
-        number_bathrooms = Column(Integer, default=0, nullable=False)
-        max_guest = Column(Integer, default=0, nullable=False)
-        price_by_night = Column(Integer, default=0, nullable=False)
+        number_rooms = Column(Integer, default=10, nullable=False)
+        number_bathrooms = Column(Integer, default=10, nullable=False)
+        max_guest = Column(Integer, default=10, nullable=False)
+        price_by_night = Column(Integer, default=10, nullable=False)
         latitude = Column(Float, nullable=True)
         longitude = Column(Float, nullable=True)
         reviews = relationship("Review", backref="place", cascade="all, delete")
@@ -48,6 +52,36 @@ class Place(BaseModel, Base):
     def __init__(self, *args, **kwargs):
         """initializes a place"""
         super().__init__(*args, **kwargs)
+
+        if 'number_rooms' in kwargs:
+            self.number_rooms = kwargs['number_rooms']
+
+        if 'number_bathrooms' in kwargs:
+            self.number_bathrooms = kwargs['number_bathrooms']
+
+        if 'max_guest' in kwargs:
+            self.max_guest = kwargs['max_guest']
+
+        if 'price_by_night' in kwargs:
+            self.price_by_night = kwargs['price_by_night']
+
+        if 'city_id' in kwargs:
+            self.city_id = kwargs['city_id']
+
+        if 'user_id' in kwargs:
+            self.user_id = kwargs['user_id']
+
+        if 'name' in kwargs:
+            self.name = kwargs['name']
+
+        if 'description' in kwargs:
+            self.description = kwargs['description']
+
+        if 'latitude' in kwargs:
+            self.latitude = kwargs['latitude']
+
+        if 'longitude' in kwargs:
+            self.longitude = kwargs['longitude']
 
     @property
     def reviews():

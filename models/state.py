@@ -11,9 +11,15 @@ import models
 
 class State(BaseModel, Base):
     """ State class """
+
     if getenv('HBNB_TYPE_STORAGE') == 'db':
         __tablename__ = 'states'
-        name = Column(String(128), nullable=False)
+        __table_args__ = {
+                'mysql_charset': 'utf8mb4',
+                'mysql_collate': 'utf8mb4_0900_ai_ci'
+        }
+
+        name = Column(String(128), unique=True, nullable=False)
         cities = relationship("City", cascade="all, delete", backref="states")
     else:
         name = ""
@@ -21,6 +27,8 @@ class State(BaseModel, Base):
     def __init__(self, *args, **kwargs):
         """initializes class state"""
         super().__init__(*args, **kwargs)
+        if 'name' in kwargs:
+            self.name = kwargs['name']
 
     if getenv('HBNB_TYPE_STORAGE') != 'db':
         @property

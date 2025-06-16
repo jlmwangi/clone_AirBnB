@@ -2,6 +2,7 @@
 """defines a new engine"""
 
 import os
+import models
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker, scoped_session
 from models.base_model import Base
@@ -91,3 +92,23 @@ class DBStorage:
         """removes the private session"""
         if self.__session:
             self.__session.remove()
+
+    def get(self, cls, id):
+        ''' A method to retrieve one object'''
+        if cls not in classnames.values():
+            return None
+
+        objects = models.storage.all(cls)
+        for obj in objects.values():
+            if obj.id == id:
+                return obj
+        return None
+
+    def count(self, cls=None):
+        ''' count number of objects in storage'''
+        if cls is None:
+            objects = models.storage.all()
+        else:
+            objects = models.storage.all(cls)
+
+        return len(objects)

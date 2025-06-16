@@ -60,8 +60,10 @@ class BaseModel:
         if 'reviews' in new_dictionary:
             new_dictionary.pop('reviews', None)
         if '_password' in new_dictionary:
+            if getenv('HBNB_TYPE_STORAGE') == 'db':
+                new_dictionary.pop('_password', None)
             new_dictionary['password'] = new_dictionary['_password']
-            new_dictionary.pop('_password', None)
+            #new_dictionary.pop('_password', None)
         if 'amenities' in new_dictionary:
             new_dictionary.pop('amenities', None)
         new_dictionary["__class__"] = self.__class__.__name__
