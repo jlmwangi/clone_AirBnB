@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> AirBnB Clone </title>
+    <link rel="stylesheet" href="static/styles/4-common.css">
+    <link rel="stylesheet" href="static/styles/3-header.css">
+    <link rel="stylesheet" href="static/styles/3-footer.css">
+    <link rel="stylesheet" href="static/styles/6-filters.css">
+    <link rel="stylesheet" href="static/styles/8-places.css">
+ 
+  </head>
+  <body>
+    <header>
+    </header>
+    <div class="container">
+      <section class="filters">
+	<div class="locations">
+	  <h3>States</h3>
+	  <h4>&nbsp</h4>
+	  <ul class="popover">
+	  {% for state in states %}
+	  <h2>{{ state.name }}</h2>
+	    <li>
+		<ul>
+		{% for city in state.cities %}
+		  <li>{{ city.name }}</li>
+		  <li>York</li>
+		  <li>Cali</li>
+		</ul>
+	    </li>
+	    <!--h2>Camera:</h2>
+	    <li>
+	      <ul>
+	        <li>Maumbwa</li>
+		<li>Takataka</li>
+	      </ul>
+	    </li-->
+	  </ul>
+	</div>
+	<div class="amenities">
+	  <h3>Amenities</h3><!--
+	  --><h4>&nbsp</h4>
+	  <ul class="popover">
+	    <li>Amenity</li>
+	    <li>Internet</li>
+	    <!--li>Telephone</li-->
+	    <li>Mobile</li>
+	    <li>Nature</li>
+	  </ul>
+	</div>
+	<button>Search</button>
+      </section>
+
+      <section class="places">
+        <h1>Places</h1>
+	<article>
+	  <div class="price_title">
+	    <h2>Place Name</h2>
+	    <div class="price_by_night">
+	        <p>$77</p>
+	    </div>
+	  </div>
+	  <div class="information">
+	    <div class="max_guest">
+	      <img src="images/icon_group.png">
+	      <p> 4 guests </p>
+	    </div>
+	    <div class="number_rooms">
+	      <img src="images/icon_bed.png">
+	      <p> 2 bedrooms </p>
+	    </div>
+	    <div class="number_bathrooms">
+	      <img src="images/icon_bath.png">
+	      <p> 1 Bathroom </p>
+	    </div>
+	  </div>
+	  <div class="user">
+	    <p><strong>Owner:</strong> Jack Ma</p>
+	  </div>
+	  <div class="description">
+	    <p>The first movie ever shown to a paying audience was in 1895, in a Paris café basement, by the Lumière brothers. One of the short films showed a train arriving at a station — and people reportedly ran out of the theater thinking the train would come through the screen.</p>
+	  </div>
+	</article>
+	<article>
+	  <div class="price_title">
+	    <h2>Another Fact</h2>
+	    <div class="price_by_night">
+	        <p>$60</p>
+	    </div>
+	  </div>
+	  <div class="information">
+	    <div class="max_guest">
+	      <img src="images/icon_group.png">
+	      <p> 4 guests </p>
+	    </div>
+	    <div class="number_rooms">
+	      <img src="images/icon_bed.png">
+	      <p> 2 bedrooms </p>
+	    </div>
+	    <div class="number_bathrooms">
+	      <img src="images/icon_bath.png">
+	      <p> 1 Bathroom </p>
+	    </div>
+	  </div>
+	  <div class="user">
+	    <p><strong>Owner:</strong> Jack Ma</p>
+	  </div>
+	  <div class="description">
+	    <p>There’s a species of jellyfish that can technically live forever.
+	  “Turritopsis dohrnii”, also known as the immortal jellyfish, can revert its cells back to an earlier state when injured or aging — like hitting a biological reset button. It’s not invincible, but under the right conditions, it can start life over again.</p>
+	  </div>
+	</article>
+	<article>
+	  <div class="price_title">
+	    <h2>Bit Jelly</h2>
+	    <div class="price_by_night">
+	      <p>$55</p>
+	    </div>
+	  </div>
+	  <div class="information">
+	    <div class="max_guest">
+	      <img src="images/icon_group.png">
+	      <p> 4 guests </p>
+	    </div>
+	    <div class="number_rooms">
+	      <img src="images/icon_bed.png">
+	      <p> 2 bedrooms </p>
+	    </div>
+	    <div class="number_bathrooms">
+	      <img src="images/icon_bath.png">
+	      <p> 1 Bathroom </p>
+	    </div>
+	  </div>
+	  <div class="user">
+	    <p><strong>Owner:</strong> Jack Ma</p>
+	  </div>
+	  <div class="description">
+	    <p>There’s a parasite that can make rats fall in love with cats.
+	  It’s called Toxoplasma gondii. It infects a rat’s brain and changes its behavior — making it attracted to the scent of cat urine. Why? Because the parasite can only reproduce inside cats. So it hacks the rat’s brain to lead it right into danger.</p>
+	  </div>
+	</article>
+	<article>
+	  <div class="price_title">
+	    <h2>Repeat Jelly</h2>
+	    <div class="price_by_night">
+	        <p>$75</p>
+	    </div>
+	  </div>
+	  <div class="information">
+	    <div class="max_guest">
+	      <img src="images/icon_group.png">
+	      <p> 4 guests </p>
+	    </div>
+	    <div class="number_rooms">
+	      <img src="images/icon_bed.png">
+	      <p> 2 bedrooms </p>
+	    </div>
+	    <div class="number_bathrooms">
+	      <img src="images/icon_bath.png">
+	      <p> 1 Bathroom </p>
+	    </div>
+	  </div>
+	  <div class="user">
+	    <p><strong>Owner:</strong> Jack Ma</p>
+	  </div>
+	  <div class="description">
+	    <p>There’s a parasite that can make rats fall in love with cats.
+	  It’s called Toxoplasma gondii. It infects a rat’s brain and changes its behavior — making it attracted to the scent of cat urine. Why? Because the parasite can only reproduce inside cats. So it hacks the rat’s brain to lead it right into danger.</p>
+	  </div>
+	</article>
+      </section>
+    </div>
+    <footer>
+      Best School
+    </footer>
+  </body>
+</html>
